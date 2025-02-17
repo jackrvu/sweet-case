@@ -27,9 +27,17 @@ to start the program:
 docker run -d --name=wyze-bridge -p 8554:8554 -p 8888:8888 -p 5000:5000 -e 'WYZE_EMAIL=mavjvu2@gmail.com' -e 'WYZE_PASSWORD=YourCorrectPasswordHere' -e 'API_ID=cde19a40-c81c-47da-9b4c-370bc82e9fbc' -e 'API_KEY=XYzr7Hs1YylalXJ47k7xwGk8hN9JvsT7w46CWeG5shHoP6KjigZypYSiCcXa' -e 'WB_AUTH=false' -e 'RTSP_FW_ENABLED=true' mrlt8/wyze-bridge:latest
 
 Is the command that actually works
+to end:
+docker stop wyze-bridge
+docker rm wyze-bridge
 
 Now, write full program to start detecting cars, etc
 Start w/ the driveway, detecting which cars are present
 
 
 yolov8x.pt is a good model, but too big, so not on repo. have to download
+
+next to add:
+easy-to-draw convex hulls for individual spots,
+mark if a car is present in each spot by seeing if a dot is present in the hull,
+generate some summary of cars present in spots
