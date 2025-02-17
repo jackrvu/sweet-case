@@ -53,3 +53,6 @@ Is the command that actually works
 Now, write full program to start detecting cars, etc
 Start w/ the driveway, detecting which cars are present
 >>>>>>> 93bd6cb (changed readme)
+
+
+yolov8x.pt is a good model, but too big, so not on repo. have to download
