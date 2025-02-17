@@ -16,3 +16,15 @@ sudo apt install vlc
 raspivid -o - -t 0 -w 1280 -h 720 -fps 30 | cvlc stream:///dev/stdin --sout '#rtp{sdp=rtsp://:8554/stream}' --demux h264
 
 ^ bunch of parameters, streams to rtsp link rtsp://<raspberry_pi_ip>:8554/stream
+
+
+Found from testing: just use wyze-bridge w/ docker desktop to bring the video stream onto a local machine
+
+to start the program:
+
+docker run -d --name=wyze-bridge -p 8554:8554 -p 8888:8888 -p 5000:5000 -e 'WYZE_EMAIL=mavjvu2@gmail.com' -e 'WYZE_PASSWORD=YourCorrectPasswordHere' -e 'API_ID=cde19a40-c81c-47da-9b4c-370bc82e9fbc' -e 'API_KEY=XYzr7Hs1YylalXJ47k7xwGk8hN9JvsT7w46CWeG5shHoP6KjigZypYSiCcXa' -e 'WB_AUTH=false' -e 'RTSP_FW_ENABLED=true' mrlt8/wyze-bridge:latest
+
+Is the command that actually works
+
+Now, write full program to start detecting cars, etc
+Start w/ the driveway, detecting which cars are present
