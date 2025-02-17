@@ -7,6 +7,7 @@ accesses some rtsp feed, must set one up prior to use
 to set up the rtsp feed, first start the mediamtx server (./mediamtx), then stream from the camera
 w/ the ffmpeg command (ffmpeg -f v4l2 -i /dev/video0 -vcodec libx264 -preset ultrafast -f rtsp rtsp://localhost:8554/mystream)
 
+<<<<<<< HEAD
 The program simply relies on a having a working RTSP feed, so any other method to accomplish that works as well (at home, test using a vlc server)
 
 how to:
@@ -28,3 +29,9 @@ Is the command that actually works
 
 Now, write full program to start detecting cars, etc
 Start w/ the driveway, detecting which cars are present
+=======
+then run the program with python main.py
+
+
+
+>>>>>>> 5177f7e (added vehicle make & model detection w/ bounding boxes, added an overview window to see vehicle summary)
