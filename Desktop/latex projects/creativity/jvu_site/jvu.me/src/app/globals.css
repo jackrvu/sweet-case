@@ -1,0 +1,65 @@
+/* File: src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+html, body {
+  background-color: white;
+  color: #030335;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom width utility */
+.custom-width {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .custom-width {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .custom-width {
+    width: 40%;
+  }
+}
+
+/* Custom link hover effects */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Custom section styling */
+.section-card {
+  border: 1px solid rgb(0, 0, 0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* No text selection utility */
+.no-select {
+  user-select: none;
+}
+
+/* Add this to your CSS file if bg-dark-blue is not defined */
+.bg-dark-blue {
+  background-color: #030335; /* Dark blue color */
+}
+
+/* Add image styling for seamless background integration */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded-sm {
+  border-radius: 0.125rem;
+}
