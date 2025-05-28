@@ -17,7 +17,7 @@ interface Project {
 const projects: Project[] = [
   {
     name: "mav hub ios app",
-    description: "school app that displays all schedule, club, and assignment information. 110k uses/mo.",
+    description: "school app that displays all schedule, club, and assignment information. 110k uses/mo, 1.1k regular users.",
     links: {
       site: "https://apps.apple.com/bf/app/mav-hub/id6670142459"
     }

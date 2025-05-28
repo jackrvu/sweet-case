@@ -6,7 +6,7 @@ export default function Header() {
       <div className="flex flex-col md:flex-row md:items-end md:justify-between">
         <div>
           <h1 className="text-xl lg:text-2xl font-bold">Jack Vu</h1>
-          <p className="text-xs lg:text-sm text-gray-700">tech rationalist.</p>
+          <p className="text-xs lg:text-sm text-gray-700">tuned in.</p>
         </div>
         <nav className="mt-2 md:mt-0">
           <ul className="flex space-x-4 text-sm">

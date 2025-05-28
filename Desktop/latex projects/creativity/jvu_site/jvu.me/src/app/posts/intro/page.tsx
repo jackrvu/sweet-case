@@ -27,10 +27,9 @@ export default function Specs() {
         <p className="italic mb-4 text-gray-600">how I work</p>
         
         <div className="space-y-3">
-          <p>computer: m3 macbook pro (1TB). 1 lambda gh200 for heavy machinery (not yet, but copying enbao).</p>
+          <p>computer: m3 macbook pro (1TB). 1 lambda gh200 for heavy machinery.</p>
           <p>programming: vscode w/ copilot & vim keybinds</p>
-          <p>math / science: ipad pro 3rd gen w/ apple pencil 2, goodnotes</p>
-          <p>music: exclusively silence. airpod max w/ noise canceling on</p>
+          <p>math / science: ipad pro 3rd gen w/ apple pencil 2</p>
         </div>
       </div>
     </>
