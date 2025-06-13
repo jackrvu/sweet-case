@@ -1,91 +1,100 @@
-# Patent Downloader (sweet-case)
+# USPTO Patent Reference Counter
 
-This folder contains a script to download patent data from the USPTO for a given company using Selenium and Chrome.
+A suite of Python scripts for retrieving and analyzing patent reference data from the USPTO PubWEST database. These scripts automate the process of collecting patent information and their reference counts for a specified company.
 
-## Setup
+## Overview
 
-1. **Install dependencies:**
+The system consists of three main scripts that work together:
 
-   Navigate to this folder and run:
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. `download_patents.py`: Downloads basic patent information for a company
+2. `reference_number_commas.py` or `reference_number_flat.py`: Retrieves reference counts for the patents
+3. `sort_csv.py`: Sorts the results by reference count
 
-2. **Run the script:**
-
-   ```bash
-   python download_patents.py "Company Name"
-   ```
-   Replace `Company Name` with the name of the company you want to search for (e.g., `Rice University`).
-
-## Notes
-- All files (including this README, requirements.txt, and the script) should remain in the `sweet-case` folder.
-- The script will create a CSV file with the results in this folder.
-- Make sure you have Google Chrome installed on your system.
-
-## Scripts Overview
-
-### 1. `download_patents.py`
-This script automates the process of downloading patent information from the USPTO website. It:
-- Searches for patents containing "{company name}" in the title
-- Collects patent IDs, names, and dates
-- Exports the data to a CSV file named `{company name}_patents.csv`
-
-### 2. `analyze_patents.py`
-This script analyzes the collected patent data to:
-- Calculate the average number of patents per year
-- Identify the year with the most patents
-- Generate visualizations of patent trends over time
-
-## Setup Instructions
-
-1. Create and activate a virtual environment:
-```bash
-python3 -m venv venv
-source venv/bin/activate  # On Unix/macOS
-# or
-.\venv\Scripts\activate  # On Windows
-```
-
-2. Install required packages:
-```bash
-pip install selenium beautifulsoup4 pandas webdriver-manager
-```
-
-3. Install Chrome browser if not already installed (required for Selenium)
-
-## Usage
-
-1. First, run the data collection script:
-```bash
-python welfare/sweet-case/download_patents.py
-```
-This will create a `ncr_patents.csv` file containing the patent data.
-
-2. Then, run the analysis script:
-```bash
-python welfare/sweet-case/analyze_patents.py
-```
-This will generate analysis results and visualizations based on the collected data.
-
-## Output Files
-
-- `{company_name}_patents.csv`: Contains the raw patent data
-- Analysis results will be displayed in the console
-- Visualizations will be saved as image files (if implemented)
-
-## Dependencies
+## Prerequisites
 
 - Python 3.x
-- Chrome browser
-- Required Python packages:
+- Google Chrome browser
+- Required Python packages (install via `pip install -r requirements.txt`):
   - selenium
   - beautifulsoup4
   - pandas
   - webdriver-manager
 
+## Setup
+
+1. Create and activate a virtual environment:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # On Unix/macOS
+# or
+.\.venv\Scripts\activate  # On Windows
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+The process involves three steps:
+
+1. **Download Patent Information**
+   ```bash
+   python download_patents.py "Company Name"
+   ```
+   This creates a CSV file named `{company_name}_patents.csv` containing:
+   - Patent numbers
+   - Titles
+   - Inventor names
+   - Publication dates
+   - Initial reference counts
+
+2. **Get Reference Counts**
+   Choose either script based on your needs:
+   ```bash
+   # For comma-formatted patent numbers
+   python reference_number_commas.py "Company Name"
+   
+   # For flat (unformatted) patent numbers
+   python reference_number_flat.py "Company Name"
+   ```
+   This creates `{company_name}_reference_results.csv` with updated reference counts.
+
+3. **Sort Results** (Optional)
+   ```bash
+   python sort_csv.py
+   ```
+   This sorts the reference results by patent number in descending order.
+
+## Output Files
+
+- `{company_name}_patents.csv`: Initial patent data
+- `{company_name}_reference_results.csv`: Final results with reference counts
+
+## Features
+
+- **Robust Error Handling**: Implements retry mechanisms and graceful error recovery
+- **Progress Tracking**: Saves results incrementally to prevent data loss
+- **Rate Limiting**: Includes appropriate delays to respect USPTO's rate limits
+- **Cross-Platform**: Tested on macOS, Windows, and Ubuntu
+- **Browser Management**: Automatically handles Chrome WebDriver installation and updates
+
 ## Notes
 
-- The scripts include appropriate delays to respect the USPTO website's rate limits
-- Make sure you have a stable internet connection when running the download script
-- The analysis script requires the CSV file generated by the download script to be present 
+- The scripts use Selenium WebDriver to interact with the USPTO PubWEST interface
+- Results are saved incrementally, so you can safely interrupt and resume the process
+- Make sure you have a stable internet connection when running the scripts
+- The scripts include appropriate delays to prevent overloading the USPTO website
+
+## Troubleshooting
+
+If you encounter issues:
+1. Ensure Chrome is installed and up to date
+2. Check your internet connection
+3. Verify that all dependencies are installed correctly
+4. Make sure you're using the correct company name format
+
+## License
+
+This project is licensed under the terms of the included LICENSE file. 
